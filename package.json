@@ -1,6 +1,9 @@
 {
+  "name": "cb-vehicles-private-repo",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
+  "homepage": "https://tajitahu.github.io/CB-Vehicles-Private-Repo/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
