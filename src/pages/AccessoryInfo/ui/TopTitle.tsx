@@ -30,7 +30,7 @@ type TopTitleProps = {
 export const TopTitle: React.FC<TopTitleProps> = ({ id, accessory }) => {
   const theme = useTheme();
   const isSmOrDown = useMediaQuery(theme.breakpoints.down("md"));
-  const userId: string = mockUser[0]?.id;
+  const userId: string = mockUser[0]?.id ?? "";
   const [isChatOpen, setChatOpen] = useState(false);
   const [favorite, setFavorite] = useState(false);
 
@@ -40,7 +40,7 @@ export const TopTitle: React.FC<TopTitleProps> = ({ id, accessory }) => {
     if (foundAccessory) {
       setFavorite(true);
     }
-  }, [favoriteAccessoriesIds]);
+  }, [favoriteAccessoriesIds, id]);
 
   const handleAddFavorites = () => {
     if (!favorite) {
@@ -70,7 +70,7 @@ export const TopTitle: React.FC<TopTitleProps> = ({ id, accessory }) => {
 
   const addCartItem = (itemId: number, count: number) => {
     const newItem: CartItem = { accessoryId: itemId, count: count };
-    const updatedItems = [...cart?.items, newItem];
+    const updatedItems = [...(cart?.items || []), newItem];
     setCart({ ...cart, items: updatedItems });
   };
 
@@ -125,7 +125,7 @@ export const TopTitle: React.FC<TopTitleProps> = ({ id, accessory }) => {
             <IconButton
               onClick={handleAddFavorites}
               sx={{
-                color: favorite ? customColors.primaryColor : "",
+                color: favorite ? customColors.primaryColor || "" : "", // Provide a default value
                 ml: "auto",
               }}
             >

@@ -1,11 +1,10 @@
-import { useTheme } from "@emotion/react";
 import { ReactNode } from "react";
 import { StyledButton } from "./AppButton.styled";
 
 type AppButtonProps = {
   variant?: "contained" | "text" | "outlined";
   label: string | number | ReactNode | "";
-  sx?: React.CSSProperties | any;
+  sx?: object;
   disabled?: boolean;
   onClick?: () => void;
   endIcon?: ReactNode;
@@ -19,11 +18,8 @@ const AppButton: React.FC<AppButtonProps> = ({
   endIcon,
   sx = {},
 }: AppButtonProps) => {
-  const theme: any = useTheme();
-
   return (
     <StyledButton
-      theme={theme}
       variant={variant}
       disabled={disabled}
       sx={{ ...sx }}

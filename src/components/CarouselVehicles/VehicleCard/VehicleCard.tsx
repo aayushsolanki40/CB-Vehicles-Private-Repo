@@ -59,7 +59,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({
     if (foundVehicle) {
       setFavorite(true);
     }
-  }, [favoriteVehiclesIds]);
+  }, [favoriteVehiclesIds, vehicleId]);
 
   const addFavorite = () => {
     selectUser.favoriteVehicles.push(vehicleId);

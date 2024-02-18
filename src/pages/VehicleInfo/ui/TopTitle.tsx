@@ -11,7 +11,7 @@ import mockUser from "../../../components/CarouselVehicles/VehicleCard/mockdata/
 import { useEffect, useState } from "react";
 import { customColors } from "../../../constants/customColors";
 import StarIcon from "@mui/icons-material/Star";
-import ContactPageIcon from '@mui/icons-material/ContactPage';
+import ContactPageIcon from "@mui/icons-material/ContactPage";
 import AppButton from "../../../shared/Buttons/AppButton";
 import { Vehicle } from "./../../../App.types";
 import ChatInterface from "./ChatInterface";
@@ -33,7 +33,7 @@ export const TopTitle: React.FC<TopTitleProps> = ({ id, vehicle }) => {
     if (foundVehicle) {
       setFavorite(true);
     }
-  }, [favoriteVehiclesIds]);
+  }, [favoriteVehiclesIds, id]);
 
   const handleAddFavorites = () => {
     if (!favorite) {
@@ -48,13 +48,13 @@ export const TopTitle: React.FC<TopTitleProps> = ({ id, vehicle }) => {
       // await connectWithSeller(sellerId);
       setChatOpen(true);
     } catch (error) {
-      console.error('Failed to connect with the seller:', error);
+      console.error("Failed to connect with the seller:", error);
     }
   };
   const handleCloseChat = () => {
     setChatOpen(false);
   };
-  
+
   const theme = useTheme();
 
   const isSmOrDown = useMediaQuery(theme.breakpoints.down("sm"));
@@ -136,9 +136,14 @@ export const TopTitle: React.FC<TopTitleProps> = ({ id, vehicle }) => {
           label="Contact"
           endIcon={<ContactPageIcon />}
         />
-<Dialog open={isChatOpen} onClose={handleCloseChat} fullWidth maxWidth="sm">
-  <ChatInterface chatId={1234}></ChatInterface>
-      </Dialog>
+        <Dialog
+          open={isChatOpen}
+          onClose={handleCloseChat}
+          fullWidth
+          maxWidth="sm"
+        >
+          <ChatInterface chatId={1234}></ChatInterface>
+        </Dialog>
 
         {userId
           ? !isSmOrDown && (

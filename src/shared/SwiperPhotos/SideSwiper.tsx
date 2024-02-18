@@ -2,9 +2,10 @@ import { CSSProperties, FC } from "react";
 import { CustomSideSwiper } from "./CustomSwiper.styled";
 import { Scrollbar, A11y, Thumbs, FreeMode, Mousewheel } from "swiper/modules";
 import { SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/types";
 
 interface SideSwiperProps {
-  setThumbsSwiper: any;
+  setThumbsSwiper: (swiper: Swiper | null) => void; // Updated type
   photos: string[];
   style?: CSSProperties;
 }
@@ -28,7 +29,7 @@ const SideSwiper: FC<SideSwiperProps> = ({
       spaceBetween={3}
       freeMode={true}
     >
-      {photos.map((photo: any, index: number) => (
+      {photos.map((photo, index) => (
         <SwiperSlide key={index}>
           <img
             src={photo}

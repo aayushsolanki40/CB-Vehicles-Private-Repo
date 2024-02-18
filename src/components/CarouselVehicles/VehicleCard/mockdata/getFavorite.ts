@@ -13,8 +13,8 @@ export type CartItem = {
 export type Cart = {
   items: CartItem[] | [];
   total?: number;
-  deliveryInfo?: any;
-  discounts?: any[];
+  deliveryInfo?: string;
+  discounts?: string[];
 };
 
 export type User = {

@@ -40,17 +40,15 @@ const AccessoryItem: FC<AccessoryItemProps> = ({ item }) => {
             </Box>
           </Box>
           <Link to={`${route.ACCESSORIES}/${id}`}>
-
-          <CardContent>
-            <Typography gutterBottom variant="body1" component="div">
-              {name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {brand}
-            </Typography>
-          </CardContent>
+            <CardContent>
+              <Typography gutterBottom variant="body1" component="div">
+                {name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {brand}
+              </Typography>
+            </CardContent>
           </Link>
-
         </CardActionArea>
       </Card>
     </ListItem>

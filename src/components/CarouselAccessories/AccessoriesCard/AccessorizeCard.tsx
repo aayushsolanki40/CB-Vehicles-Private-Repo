@@ -49,7 +49,7 @@ export const AccessorizeCard: React.FC<AccessoryCardProps> = ({
     if (favoriteAccessoryFind) {
       setFavorite(true);
     }
-  }, [favoriteAccessoriesIds]);
+  }, [favoriteAccessoriesIds, accessoryId]);
 
   const addFavorite = () => {
     selectUser.favoriteAccessories.push(accessoryId);
@@ -86,7 +86,7 @@ export const AccessorizeCard: React.FC<AccessoryCardProps> = ({
 
   const addCartItem = (itemId: number, count: number) => {
     const newItem: CartItem = { accessoryId: itemId, count: count };
-    const updatedItems = [...cart?.items, newItem];
+    const updatedItems = [...(cart?.items || []), newItem];
     setCart({ ...cart, items: updatedItems });
   };
 
@@ -133,14 +133,13 @@ export const AccessorizeCard: React.FC<AccessoryCardProps> = ({
   return (
     <AccessoryCardWrapper>
       <AccessoryImageWrapper>
-
-      <Link to={`${route.ACCESSORIES}/${accessorizeInfo.id}`}>
-      <AccessoryImage
-          src={accessorizeInfo.img[0]}
-          alt={accessorizeInfo.name}
-          width="250"
-          height="250"
-        />
+        <Link to={`${route.ACCESSORIES}/${accessorizeInfo.id}`}>
+          <AccessoryImage
+            src={accessorizeInfo.img[0]}
+            alt={accessorizeInfo.name}
+            width="250"
+            height="250"
+          />
         </Link>
 
         <FavoriteButton>

@@ -63,7 +63,10 @@ function App() {
               </Route>
               <Route path={route.VEHICLES} element={<Vehicles />} />
               <Route path={`${route.VEHICLES}/:id`} element={<VehicleInfo />} />
-              <Route path={`${route.ACCESSORIES}/:id`} element={<AccessoryInfo />} />
+              <Route
+                path={`${route.ACCESSORIES}/:id`}
+                element={<AccessoryInfo />}
+              />
 
               <Route path={route.ACCESSORIES} element={<Accessories />} />
               <Route path={route.SELL} element={<Listing />} />

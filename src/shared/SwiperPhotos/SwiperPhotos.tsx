@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -10,12 +9,13 @@ import { SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Thumbs } from "swiper/modules";
 import { CustomSwiper } from "./CustomSwiper.styled";
 import SideSwiper from "./SideSwiper";
+import { Swiper } from "swiper/types";
 
 type SwiperPhotosProps = {
   photos: string[];
 };
 export const SwiperPhotos: FC<SwiperPhotosProps> = ({ photos }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<Swiper | null>(null);
 
   return (
     <div
@@ -49,7 +49,7 @@ export const SwiperPhotos: FC<SwiperPhotosProps> = ({ photos }) => {
         spaceBetween={5}
         className="custom-swiper"
       >
-        {photos.map((photo: any, index: number) => (
+        {photos.map((photo, index) => (
           <SwiperSlide key={index}>
             <img
               src={photo}
